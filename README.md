@@ -1,64 +1,27 @@
-# C# Playwright NUnit Automation Project
+# SauceDemo Data-Driven Automation Framework
 
-A web automation testing project built for the SauceDemo website using **C#**, **Playwright**, and **NUnit**. This project demonstrates clean automation coding practices using the Page Object Model (POM), external test data handling, and base class inheritance.
+This project contains a data-driven web automation framework built from scratch using **C#** **Playwright** and **NUnit**. It implements structural configurations to handle multiple user profiles natively via configuration layers.
 
-## 🚀 Key Features
+## 🛠️ Key Technical Features
+* **Page Object Model (POM):** Decent structural isolation between web locators and test workflows.
+* **Dynamic Data Parsing:** Core JSON utilities (`System.Text.Json`) to load user authentication data cleanly from external sheets.
+* **Custom Execution Hooks:** Inherited base framework architecture (`BaseTest`) managing isolated browser tabs, screenshot lifecycles, and Trace Viewer reporting.
+* **Parallel Execution Engine:** Global assembly configuration running multi-threaded test scenarios simultaneously to save execution time.
+* **CI/CD Configuration Ready:** Custom pipeline setup (`azure-pipelines.yaml`) ready to execute tests smoothly on cloud environments.
 
-- **Base Class Architecture (`BaseTest.cs`):** Removed duplicate code across test files by creating a master base class. All browser context initialization, dynamic test tracing, and teardown operations are handled centrally.
+## 📁 Framework Structure Quick View
+* `Data/` - Dynamic database parameters (.json profiles) and tracking model classes.
+* `Utils/` - Custom directory path readers and synchronous file stream converters.
+* `Pages/` - UI web elements mapping logic.
+* `Tests/` - Execution test classes inherited securely from BaseTest configuration.
 
-- **Page Object Model (POM):** Organized the code by separating UI elements and actions into dedicated page classes, making the scripts easy to read and maintain.
-
-- **Data-Driven Testing:** Removed all hardcoded usernames and passwords from test scripts. The project reads test data dynamically from an external **JSON file** at runtime using C# models.
-
-- **Clean Test Layout (No If-Else):** Avoided complex conditional logic inside tests. The workflows are split into separate test files: one for the successful end-to-end checkout flow (`ValidUserTests`) and one for the locked-out user error validation (`LockedUserTests`).
-
-- **Automatic NUnit Test Tracing:** Integrated automatic Playwright Tracing that records execution screenshots and snapshots. It utilizes NUnit's `TestContext` to automatically save `.zip` traces named after each specific running test case inside a `Traces/` folder.
-
-## 📁 Project Directory Structure
-
-```text
-PlaywrightFramework/
-│
-├── Data/
-│   ├── LoginData.json          # Test data credentials in JSON format
-│   └── LoginDataModel.cs       # C# class mapping for JSON data structure
-│
-├── Pages/
-│   ├── LoginPage.cs            # Login page elements and methods
-│   ├── InventoryPage.cs        # Product catalog elements and methods
-│   ├── InfoCheckoutDetails.cs  # Customer checkout form elements and methods
-│   └── CheckoutCompletePage.cs # Order completion success page verification
-│
-├── Tests/
-│   ├── BaseTest.cs             # Master central setup and teardown hooks class
-│   ├── ValidUserTests.cs       # End-to-End successful user journey test (Inherits BaseTest)
-│   └── LockedUserTests.cs      # Negative locked-out user error message test (Inherits BaseTest)
-│
-├── Utils/
-│   ├── FrameworkUtils.cs       # Custom timestamp generator tool
-│   └── JsonReader.cs           # JSON file reading utility
-│
-└── Traces/                     # Folder where execution zip traces are saved automatically
-```
-
-## 🛠️ How to Setup and Run
-
-1. **Clone the Project Repository:**
+## 🏃‍♂️ How to Run Locally
+1. Clone the project repository to your workspace.
+2. Open the terminal inside the root directory and build the workspace:
    ```bash
-   git clone https://github.com
-   cd csharp-playwright-nunit-framework
+   dotnet build
    ```
-
-2. **Restore Dependencies:**
+3. Run the automated regression test suite using the NUnit filter tag:
    ```bash
-   dotnet restore
-   ```
-
-3. **Run the Automated Tests:**
-   Execute the following command in your terminal to clear past cache and trigger the execution suite:
-   ```bash
-   dotnet clean
-   ```
-   ```bash
-   dotnet test --logger:"console;verbosity=detailed"
+   dotnet test --filter "SauceDemoTests"
    ```

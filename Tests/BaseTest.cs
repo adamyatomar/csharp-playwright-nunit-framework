@@ -6,6 +6,9 @@ using NUnit.Framework;
 using Framework.Utils;
 using System.Runtime.CompilerServices;
 using NUnit.Framework.Internal;
+using System.Reflection;
+
+[assembly : Parallelizable(ParallelScope.Fixtures)]
 
 namespace Framework.Tests
 {
