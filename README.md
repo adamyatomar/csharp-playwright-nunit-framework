@@ -1,27 +1,28 @@
-# SauceDemo Data-Driven Automation Framework
+# Playwright & NUnit Test Automation Portfolio
 
-This project contains a data-driven web automation framework built from scratch using **C#** **Playwright** and **NUnit**. It implements structural configurations to handle multiple user profiles natively via configuration layers.
+This repository contains functional automated web testing projects built from scratch using **C# Playwright** and **NUnit**. The main objective is to design clean page element maps and load test data dynamically from external configuration files.
 
-## 🛠️ Key Technical Features
-* **Page Object Model (POM):** Decent structural isolation between web locators and test workflows.
-* **Dynamic Data Parsing:** Core JSON utilities (`System.Text.Json`) to load user authentication data cleanly from external sheets.
-* **Custom Execution Hooks:** Inherited base framework architecture (`BaseTest`) managing isolated browser tabs, screenshot lifecycles, and Trace Viewer reporting.
-* **Parallel Execution Engine:** Global assembly configuration running multi-threaded test scenarios simultaneously to save execution time.
-* **CI/CD Configuration Ready:** Custom pipeline setup (`azure-pipelines.yaml`) ready to execute tests smoothly on cloud environments.
+## 📁 Repository Structure & Projects
 
-## 📁 Framework Structure Quick View
-* `Data/` - Dynamic database parameters (.json profiles) and tracking model classes.
-* `Utils/` - Custom directory path readers and synchronous file stream converters.
-* `Pages/` - UI web elements mapping logic.
-* `Tests/` - Execution test classes inherited securely from BaseTest configuration.
+### 1. Web Portal Automation (SauceDemo Project)
+* **Design Pattern:** Built using the Page Object Model (POM) to keep web elements and test scenarios separate and clean.
+* **Trace Viewer & Logs:** Automatically captures runtime screenshots, page snapshots, and zip logs using custom setup and teardown lifecycle hooks.
+* **Cloud Execution File:** Contains a structured `azure-pipelines.yaml` configuration to trigger and execute tests on Azure DevOps cloud agents.
 
-## 🏃‍♂️ How to Run Locally
-1. Clone the project repository to your workspace.
-2. Open the terminal inside the root directory and build the workspace:
+### 2. E-Commerce Filter Automation (Amazon India Project)
+* **Data-Driven Processing:** Completely removed hardcoded strings from the code by reading search keys, product categories, and timeouts dynamically from external JSON sheets using `System.Text.Json`.
+* **Dropdown Selection Automation:** Utilizes custom dual-parameter methods to select specific product departments from native select-boxes before triggering search keys.
+* **Test Verification:** Validated live user search scenarios with 100% stable execution metrics.
+
+## ⚡ Global Execution Optimization
+* **Parallel Execution Engine:** Configured NUnit global assembly attributes to execute multiple test classes simultaneously over parallel worker threads to minimize local and cloud execution time.
+
+## 🏃‍♂️ How to Run the Projects Locally
+1. Clone this master repository to your local computer workspace.
+2. Build the visual solution project files using the terminal:
    ```bash
    dotnet build
    ```
-3. Run the automated regression test suite using the NUnit filter tag:
-   ```bash
-   dotnet test --filter "SauceDemoTests"
-   ```
+3. Execute the respective test suites using standard NUnit specialized filter tags:
+   * For SauceDemo portal tests: `dotnet test --filter "SauceDemoTests"`
+   * For Amazon filter tests: `dotnet test --filter "AmazonSearchTest"`
