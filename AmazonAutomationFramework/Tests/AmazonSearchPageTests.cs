@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Microsoft.VisualBasic;
 using Framework.Utils;
 
-[assembly : Parallelizable(ParallelScope.Fixtures)]
+
 
 namespace Framework.Tests
 {
