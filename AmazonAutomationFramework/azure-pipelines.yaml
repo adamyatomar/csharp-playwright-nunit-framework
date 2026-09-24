@@ -6,7 +6,7 @@ vmImage: 'windows-latest'
 
 steps: 
 - script: | 
-dotnet build
-bin/Debug/net10.0/playwright.ps1 install
-dotnet test
+    dotnet build
+    bin/Debug/net10.0/playwright.ps1 install
+    dotnet test
 displayName : 'Run Amazon Dynamic Data-Driven Automation Regression Suite'
