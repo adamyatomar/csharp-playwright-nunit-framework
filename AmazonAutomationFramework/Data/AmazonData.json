@@ -1,0 +1,22 @@
+[
+    {
+        "amazonSearchKey" : "MacBook Air",
+        "productCategory" : "Electronics",
+        "testTimeout" : 30
+    },
+    {
+        "amazonSearchKey" : "Cantabil T-Shirt",
+        "productCategory" : "Clothing & Accessories",
+        "testTimeout" : 40
+    },
+    {   
+        "amazonSearchKey" : "Dumbbells (20KG)",
+        "productCategory" : "Sports, Fitness & Outdoors",
+        "testTimeout" : 50
+    },
+    {
+        "amazonSearchKey" : "Nivia Face Wash",
+        "productCategory" : "Beauty",
+        "testTimeout" : 60
+    }
+]
